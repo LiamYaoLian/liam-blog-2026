@@ -1,0 +1,3 @@
+[submodule "themes/hugo-theme-blunix"]
+	path = themes/hugo-theme-blunix
+	url = https://github.com/Blunix-GmbH/hugo-theme-blunix.git

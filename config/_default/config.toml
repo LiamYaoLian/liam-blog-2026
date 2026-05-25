@@ -1,0 +1,18 @@
+baseURL = 'https://example.org/'
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = false
+languageCode = 'en'
+title = "Liam's Blog"
+description = 'System design and engineering notes'
+theme = 'hugo-theme-blunix'
+uglyURLs = false
+disableKinds = ['taxonomy', 'term']
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    noClasses = true

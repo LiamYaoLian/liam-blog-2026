@@ -1,0 +1,12 @@
+[en]
+languageName = 'English'
+languageCode = 'en-us'
+contentDir = 'content/en'
+title = "Liam's Blog"
+weight = 1
+
+[en.params]
+footer_copyright = "Copyright {year} Liam.\n\nAll rights reserved."
+flag_image = 'english'
+flag_alt = 'English'
+label = 'English'
