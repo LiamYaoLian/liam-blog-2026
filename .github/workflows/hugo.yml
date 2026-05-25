@@ -57,6 +57,7 @@ jobs:
             --gc \
             --minify \
             --baseURL "${{ steps.baseurl.outputs.url }}"
+          bash scripts/fix-github-pages-subpath.sh "${{ steps.baseurl.outputs.url }}"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
