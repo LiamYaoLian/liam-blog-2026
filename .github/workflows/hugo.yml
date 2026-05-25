@@ -35,6 +35,18 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+        continue-on-error: true
+
+      - name: Set base URL
+        id: baseurl
+        run: |
+          if [ -n "${{ steps.pages.outputs.base_url }}" ]; then
+            echo "url=${{ steps.pages.outputs.base_url }}/" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event.repository.name }}" = "$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]').github.io" ]; then
+            echo "url=https://${{ github.repository_owner }}.github.io/" >> "$GITHUB_OUTPUT"
+          else
+            echo "url=https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Build
         env:
@@ -44,7 +56,7 @@ jobs:
           hugo \
             --gc \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"
+            --baseURL "${{ steps.baseurl.outputs.url }}"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
